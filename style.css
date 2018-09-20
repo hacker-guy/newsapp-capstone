@@ -1,0 +1,108 @@
+html {
+	background-color: #a2a1a3;
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	width: 80%;
+	padding: 5%;
+	margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+	margin: 0;
+	font-family: 'Lora', serif;
+}
+
+.newsstory {
+	display: inline-block;
+	width: 400px;
+	border: black solid 6px;
+	background-color: #d9d8d9;
+	margin: 5px;
+}
+
+.apict {
+	width: 200px;
+}
+
+a {
+	text-decoration: none; 
+	color: inherit;
+}
+
+a .newsstory:hover {
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.50);
+	transition: box-shadow 0.2s;
+}
+
+.navbar {
+	display: table;
+	border-collapse: collapse;
+	box-shadow: black 0px 0px 0px 1px;
+	width: 100%;
+	height: 40px;
+	background-color: #993000;
+	margin-bottom: 10px;
+}
+
+.navbar li {
+	height: 100%;
+	border-left: black 1px solid;
+    border-right: black 1px solid;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.navbar > :first-child {
+	border-left: 0;
+}
+.navbar > :last-child {
+	border-right: 0;
+}
+
+.navbar li a {
+	color: white;
+	display: block;
+	padding: .8em;
+}
+
+.articles * {
+	margin: 10px;
+	display: inline-block;
+}
+
+.newsstory * {
+	display: block;
+}
+
+.articles img {
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.asource {
+	width: 90%;
+	text-align: right;
+	font-style: italic;
+	font-family: 'Rokkitt', serif;
+	font-size: 12px;
+	color: #993000;
+}
+
+.atitle {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Playfair Display', serif;
+}
+
+.adescr .navbar {
+	font-family: 'Sorts Mill Goudy', serif;
+}
