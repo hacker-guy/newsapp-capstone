@@ -106,3 +106,11 @@ a .newsstory:hover {
 .adescr .navbar {
 	font-family: 'Sorts Mill Goudy', serif;
 }
+
+.sources {
+	font-size: 20px;
+	text-align: center;
+	display: inline-block;
+	color: #993000;
+	width: 100%;
+}

@@ -9,7 +9,16 @@ $(document).ready(function() {
 });
 
 function initLoad() {
-	$.getJSON("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=4cdd18177876469f965b824dda3ec945", 
+	// var hrefloc = $(location).attr('href');
+	// var page = hrefloc.substr(hrefloc.lastIndexOf('/') + 1);
+	var jsonObj = ''
+	// if (page == "index.html") {
+	jsonObj = "https://newsapi.org/v2/top-headlines?country=au&apiKey=4cdd18177876469f965b824dda3ec945";
+	// } else if (page == "source.html") {
+	// 	jsonObj = "https://newsapi.org/v2/sources?apiKey=4cdd18177876469f965b824dda3ec945";
+	// } else if (page == "category.html") {
+
+	$.getJSON(jsonObj, 
 		function(json) {
 			console.log(json);
 			if (json != "Nothing found.") {
