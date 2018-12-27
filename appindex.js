@@ -1,15 +1,18 @@
+
 const INIT_N = 10;
 var page = 1;
 
-$(document).ready(function() { 
-	$(window).scroll(function() {
-	   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+const handler =  _.throttle(checkScroll, 500);
+
+window.addEventListener("scroll", handler);
+
+function checkScroll() {
+	if($(window).scrollTop() + $(window).height() >= $(document).height()*0.75) {
 	   	/* Update content when scrolling */
 	   	page += 1;
-	   	aLoad();
-	   }
-	});
-});
+	  	 aLoad();
+	}
+}
 
 function aLoad() {
 	// var hrefloc = $(location).attr('href');
@@ -26,7 +29,9 @@ function aLoad() {
 			console.log(json);
 			if (json != "Nothing found.") {
 				if (json.articles.length == 0) {
-					$(".articles").append("<br><center>Nothing to see here :(</center>");
+					$(".articles").append("<br>That's all folks!");
+					window.removeEventListener("scroll", handler);
+					return(1);
 				}
 				addArticles(INIT_N, json);
 			}
@@ -34,8 +39,6 @@ function aLoad() {
 }
 
 function addArticles(n, json) {
-	console.log(page);
-	console.log(n);
 	for (var i = 0; i < json.articles.length && i < n; i++) {
 		 // Loading the description of the article 
 		var descr = '';
@@ -59,7 +62,6 @@ function addArticles(n, json) {
 			json.articles[i].source.name + 
 			"</div></div></a>"
 		);
-		console.log("done");
 	}
 }
 
