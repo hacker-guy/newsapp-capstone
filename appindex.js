@@ -1,19 +1,22 @@
 const INIT_N = 10;
+var page = 1;
 
 $(document).ready(function() { 
 	$(window).scroll(function() {
 	   if($(window).scrollTop() + $(window).height() == $(document).height()) {
 	   	/* Update content when scrolling */
+	   	page += 1;
+	   	aLoad();
 	   }
 	});
 });
 
-function initLoad() {
+function aLoad() {
 	// var hrefloc = $(location).attr('href');
 	// var page = hrefloc.substr(hrefloc.lastIndexOf('/') + 1);
 	var jsonObj = ''
 	// if (page == "index.html") {
-	jsonObj = "https://newsapi.org/v2/top-headlines?country=au&apiKey=4cdd18177876469f965b824dda3ec945";
+	jsonObj = "https://newsapi.org/v2/top-headlines?country=au&pagesize=10&page=" + page + "&apiKey=4cdd18177876469f965b824dda3ec945";
 	// } else if (page == "source.html") {
 	// 	jsonObj = "https://newsapi.org/v2/sources?apiKey=4cdd18177876469f965b824dda3ec945";
 	// } else if (page == "category.html") {
@@ -22,9 +25,8 @@ function initLoad() {
 		function(json) {
 			console.log(json);
 			if (json != "Nothing found.") {
-				$(".articles").html("");
 				if (json.articles.length == 0) {
-					$(".articles").html("Nothing to see here :(");
+					$(".articles").append("<br><center>Nothing to see here :(</center>");
 				}
 				addArticles(INIT_N, json);
 			}
@@ -32,6 +34,8 @@ function initLoad() {
 }
 
 function addArticles(n, json) {
+	console.log(page);
+	console.log(n);
 	for (var i = 0; i < json.articles.length && i < n; i++) {
 		 // Loading the description of the article 
 		var descr = '';
@@ -55,9 +59,10 @@ function addArticles(n, json) {
 			json.articles[i].source.name + 
 			"</div></div></a>"
 		);
+		console.log("done");
 	}
 }
 
 $(function() {
-	initLoad();
+	aLoad();
 });
