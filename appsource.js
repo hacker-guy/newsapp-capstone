@@ -5,23 +5,24 @@ $(document).ready(function() {
 	   }
 	});
 });
-
+/* Initial loading */
 function initLoad() {
+	// Load sources
 	var jsonObj = "https://newsapi.org/v2/sources?language=en&apiKey=4cdd18177876469f965b824dda3ec945";
 	$.getJSON(jsonObj, 
 		function(json) {
-			console.log(json);
 			if (json != "Nothing found.") {
-				$(".sources").html("");
 				if (json.sources.length == 0) {
 					$(".sources").append("Nothing to see here :(");
+				} else {
+					addSources(json);
 				}
-				addSources(json);
 			}
 	});
 }
 
 function addSources(json) {
+	$(".loading").attr('hidden', 'hidden');
 	for (var i = 0; i < json.sources.length; i++) {
 		// Create the article
 		$(".sources").append("<a href=" + json.sources[i].url + "><br>" 
@@ -30,6 +31,7 @@ function addSources(json) {
 	}
 }
 
+// When document is ready
 $(function() {
 	initLoad();
 });
