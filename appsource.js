@@ -1,10 +1,3 @@
-$(document).ready(function() { 
-	$(window).scroll(function() {
-	   if($(window).scrollTop() + $(window).height() == $(document).height()) {
-	   	/* Update content when scrolling */
-	   }
-	});
-});
 /* Initial loading */
 function initLoad() {
 	// Load sources
@@ -21,7 +14,9 @@ function initLoad() {
 	});
 }
 
+// Add sources
 function addSources(json) {
+	// Hide loading
 	$(".loading").attr('hidden', 'hidden');
 	for (var i = 0; i < json.sources.length; i++) {
 		// Create the article
