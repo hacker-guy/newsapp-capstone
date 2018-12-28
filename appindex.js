@@ -1,8 +1,7 @@
 
 const INIT_N = 10;
-var page = 1;
-
 const handler =  _.throttle(checkScroll, 500);
+var page = 1;
 
 window.addEventListener("scroll", handler);
 
