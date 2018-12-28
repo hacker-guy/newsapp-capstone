@@ -28,9 +28,8 @@ function aLoad() {
 			console.log(json);
 			if (json != "Nothing found.") {
 				if (json.articles.length == 0) {
-					$(".articles").append("<br>That's all folks!");
 					window.removeEventListener("scroll", handler);
-					return(1);
+					$(".articles").append("<br>That's all folks!");
 				}
 				addArticles(INIT_N, json);
 			}
